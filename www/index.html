@@ -35,49 +35,58 @@
             // Cordova is ready
             //
             function onDeviceReady() {
+            	// add any initialization code here
             }
         
-        function show() {
-            StatusBar.show();
-            StatusBar.overlaysWebView(overlay)
-        }
+        	function showStatusBar(show) {
+            	if (show) {
+            		StatusBar.show();
+                	StatusBar.overlaysWebView(g_overlay)
+            	}
+            	else
+                	StatusBar.hide();
+        	}
         
-        function overlayWebView(isOverlay) {
-            overlay = isOverlay;
-            StatusBar.overlaysWebView(overlay);
-        }
+        	function overlayWebView(isOverlay) {
+            	g_overlay = isOverlay;
+            	StatusBar.overlaysWebView(g_overlay);
+        	}
         
+        	function setColor(inColor) {
+            	g_color = inColor
+            	StatusBar.backgroundColorByName(g_color);
         
-        function backgroundColor(theColor) {
-            color = theColor
-            StatusBar.backgroundColorByName(color);
-            
-            if (color === "black")
-                StatusBar.styleLightContent();
-        }
+            	if (g_color === "black")
+                	StatusBar.styleLightContent();
+        	}
 
-        function defaultStyle() {
-            color = "white"
-            StatusBar.styleDefault();
-            StatusBar.backgroundColorByName(color);
-        }
+        	function defaultStyle() {
+            	g_color = "white"
+            	StatusBar.styleDefault();
+            	StatusBar.backgroundColorByName(g_color);
+        	}
         
-        function lightContent() {
-            StatusBar.styleLightContent();
-            if (color === "white")
-                backgroundColor("black");
-        }
+        	function lightContent() {
+            	StatusBar.styleLightContent();
+            	if (g_color === "white") {
+                	g_color = "black";
+                	StatusBar.backgroundColorByName(g_color);
+            	}
+        	}
 
         </script>
     </head>
     <body>
-        <p><a href="#" onclick="StatusBar.hide(); return false;">Hide Status Bar</a></p>
-        <p><a href="#" onclick="show(); return false;">Show Status Bar</a></p>
-        <p><a href="#" onclick="backgroundColor('red'); return false;">Red Status Bar</a></p>
-        <p><a href="#" onclick="backgroundColor('blue'); return false;">Blue Status Bar</a></p>
-        <p><a href="#" onclick="backgroundColor('black'); return false;">Black Status Bar</a></p>
+    	<p><a href="#" onclick="showStatusBar(false); return false;">Hide Status Bar</a></p>
+    	<p><a href="#" onclick="showStatusBar(true); return false;">Show Status Bar</a></p>
+    
+    	<p><a href="#" onclick="setColor('red'); return false;">Red Status Bar</a></p>
+    	<p><a href="#" onclick="setColor('blue'); return false;">Blue Status Bar</a></p>
+    	<p><a href="#" onclick="setColor('black'); return false;">Black Status Bar</a></p>
+    
         <p><a href="#" onclick="overlayWebView(true); return false;">Status Bar Overlays WebView</a></p>
         <p><a href="#" onclick="overlayWebView(false); return false;">Status Bar sits above WebView</a></p>
+    
         <p><a href="#" onclick="lightContent(); return false;">Light Content Status Bar</a></p>
         <p><a href="#" onclick="defaultStyle(); return false;">Default Status Bar Style</a></p>
         
