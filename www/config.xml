@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns		= "http://www.w3.org/ns/widgets"
+	xmlns:gap	= "http://phonegap.com/ns/1.0"
+	id		= "com.phonegap.hello-world"
+	version 	= "1.0.0">
+
+	<name>StatusBar Test</name>
+
+	<description>
+		StatusBar Plugin test app
+	</description>
+	
+    <author href="http://phonegap.com" email="support@phonegap.com">
+        PhoneGap Team
+    </author>
+    
+	<preference name="phonegap-version" value="3.1.0" />
+
+	<gap:plugin name="com.phonegap.plugin.statusbar" />
+
+	<gap:platforms>
+		<gap:platform name="ios" />
+	</gap:platforms>
+
+	<!-- DEFAULT -->
+    <icon src="icon.png" />
+
+	<!-- iOS Specific icons -->
+    <icon src="icons/ios/icon.png" gap:platform="ios" width="57" height="57" />
+    <icon src="icons/ios/icon-72.png" gap:platform="ios" width="72" height="72" />
+    <icon src="icons/ios/icon_at_2x.png" gap:platform="ios" width="114" height="114" />
+    <icon src="icons/ios/icon-72_at_2x.png" gap:platform="ios" width="144" height="144" />
+    
+	<icon src="icons/ios/icon-60.png" gap:platform="ios" width="60" height="60" />
+	<icon src="icons/ios/icon-60_at_2x.png" gap:platform="ios" width="120" height="120" />
+	<icon src="icons/ios/icon-76.png" gap:platform="ios" width="76" height="76" />
+	<icon src="icons/ios/icon-76_at_2x.png" gap:platform="ios" width="152" height="152" />
+
+	<gap:splash src="splash/ios/Default-568h_at_2x.png" gap:platform="ios" width="640" height="1136" />
+
+
+</widget>
